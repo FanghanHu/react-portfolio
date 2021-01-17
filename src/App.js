@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Link, Switch, Route } from "react-router-dom";
 import Home from './components/home';
 import Portfolio from './components/portfolio';
 import Contact from './components/contact'
@@ -7,7 +7,7 @@ import Contact from './components/contact'
 function App() {
   return (
     <>
-      <Router>
+      <Router basename="/">
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <a className="navbar-brand" href="./index.html">Fanghan Hu</a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="#navbar-content" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@ function App() {
         </nav>
 
         <Switch>
-          <Route path={["/index", "/"]} exact>
+          <Route path={["*/index", "/"]} exact>
             <Home/>
           </Route>
           <Route path="/portfolio" exact>
