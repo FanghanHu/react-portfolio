@@ -1,5 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
+import Home from './components/home';
+import Portfolio from './components/portfolio';
+import Contact from './components/contact'
 
 function App() {
   return (
@@ -13,24 +16,30 @@ function App() {
           <div className="collapse navbar-collapse" id="navbar-content">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
-                <Link className="nav-link" to="./index.html">Home</Link>
+                <Link className="nav-link" to="./index">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="./portfolio.html">Portfolio</Link>
+                <Link className="nav-link" to="./portfolio">Portfolio</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="./contact.html">Contact</Link>
+                <Link className="nav-link" to="./contact">Contact</Link>
               </li>
             </ul>
           </div>
         </nav>
 
         <Switch>
-          <Route path="/index.html">
-            
+          <Route path={["/index", "/"]} exact>
+            <Home/>
+          </Route>
+          <Route path="/portfolio" exact>
+            <Portfolio/>
+          </Route>
+          <Route path="/contact" exact>
+            <Contact/>
           </Route>
         </Switch>
-        <footer class="position-fixed fixed-bottom text-center p-1 bg-dark text-white">
+        <footer className="position-fixed fixed-bottom text-center p-1 bg-dark text-white">
           Copyright 2020
         </footer>
       </Router>
